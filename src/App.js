@@ -1,29 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Sidebar from './components/Sidebar/Sidebar';
 import './App.scss';
 
-
-// Import các trang
 import Reports from './pages/Reports/Reports';
-// import OpenReport from './pages/OpenReport';
-// import ReportInfo from './pages/ReportInfo';
-// import Compare from './pages/Compare';
 import OtherPage from './pages/Others/OthersPage';
+import Sidebar from './components/Sidebar/Sidebar';
 
 const App = () => {
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarCollapsed(prevState => !prevState);
+  };
+
   return (
     <Router>
       <div className="app__root">
-        <div className="side__bar" >
-          <Sidebar />
+        <div className={`sidebar-div ${isSidebarCollapsed ? 'collapsed' : 'expanded'}`}>
+          <Sidebar toggleSidebar={toggleSidebar} isSidebarCollapsed={isSidebarCollapsed} />
         </div>
         <div className="app__content">
           <Routes>
             <Route path="/reports" element={<Reports />} />
-            {/* <Route path="/open-report" element={<OpenReport />} />
-            <Route path="/report-info" element={<ReportInfo />} />
-            <Route path="/compare" element={<Compare />} /> */}
             <Route path="/others-page" element={<OtherPage />} />
           </Routes>
         </div>

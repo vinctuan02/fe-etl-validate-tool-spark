@@ -1,52 +1,54 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap');
-
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    text-decoration: none !important
-}
-
-body {
-    background-color: #f0f0f0 !important;
-    color: #2b2b2b;
-    font-family: 'Roboto', sans-serif;
-}
-
-a {
-    text-decoration: none;
-    color: unset;
-}
-
-input:focus {
-    outline: none;
-}
-
 .app__root {
-    height: 100vh;
     display: flex;
+    height: 100vh;
+    background-color: #f0f0f0;
 
-    .side__bar {
-        width: 100%;
-        /* Đặt width bằng 100% để kiểm soát theo max-width và min-width */
-        max-width: 300px;
-        /* Tối đa là 20% chiều rộng màn hình */
-        border: 1px solid green;
-        height: 100vh;
-        /* Chiều cao sidebar sẽ luôn chiếm 100% chiều cao của viewport */
-        background-color: #fff;
+    // margin-bottom: 20px;
+
+    a {
+        text-decoration: none;
+        color: unset;
     }
 
-    .app__content {
-        flex-grow: 1;
-        /* Chiếm phần không gian còn lại */
-        border: 1px solid red;
+    .sidebar-div {
+        // border: 1px solid blue;
+        border-radius: 20px;
+        transition: width 0.5s ease;
         height: 100vh;
-        /* Chiều cao của content chiếm 100% */
-        overflow-y: auto;
-        /* Cho phép cuộn khi nội dung vượt quá chiều cao */
-        padding: 20px;
-        /* Đảm bảo không gian cho nội dung */
+
+        overflow: hidden;
+
+        &.collapsed {
+            width: 117px;
+        }
+
+        &.expanded {
+            width: 17vw;
+            max-width: 300px;
+        }
+    }
+
+    // .sidebar {
+    //     border: 1px solid blue;
+    //     border-radius: 20px;
+    //     transition: width 0.4s ease;
+    //     height: 100vh;
+
+    //     &.collapsed {
+    //         width: 5vw;
+    //     }
+
+    //     &.expanded {
+    //         width: 15vw;
+    //     }
+    // }
+
+    .app__content {
+        // border: 1px solid red;
+        border-radius: 20px;
+        flex: 1;
+        background-color: #fff;
+
+        margin: 15px 15px 15px 5px;
     }
 }
