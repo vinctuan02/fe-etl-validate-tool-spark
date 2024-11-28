@@ -1,22 +1,22 @@
 .app__root {
     display: flex;
-    height: 100vh;
     background-color: #f0f0f0;
-
-    // margin-bottom: 20px;
+    height: 100vh;
 
     a {
         text-decoration: none;
         color: unset;
     }
 
+    // Sidebar
     .sidebar-div {
-        // border: 1px solid blue;
+        position: fixed;
+        top: 0;
+        left: 0;
         border-radius: 20px;
-        transition: width 0.5s ease;
         height: 100vh;
-
         overflow: hidden;
+        transition: width 0.4s ease;
 
         &.collapsed {
             width: 117px;
@@ -28,27 +28,65 @@
         }
     }
 
-    // .sidebar {
-    //     border: 1px solid blue;
-    //     border-radius: 20px;
-    //     transition: width 0.4s ease;
-    //     height: 100vh;
-
-    //     &.collapsed {
-    //         width: 5vw;
-    //     }
-
-    //     &.expanded {
-    //         width: 15vw;
-    //     }
-    // }
-
-    .app__content {
-        // border: 1px solid red;
-        border-radius: 20px;
+    // Main Content for Collapsed Sidebar
+    .app__main.collapsed {
         flex: 1;
-        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        border-radius: 20px;
+        margin-left: 117px;
+        padding: 20px;
+        transition: margin-left 0.4s ease;
 
-        margin: 15px 15px 15px 5px;
+        .header {
+            height: 55px;
+            position: fixed;
+            transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+
+            &.header-hidden {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+        }
+
+        .app__content {
+            margin-top: 65px;
+            flex: 1;
+            overflow-y: auto;
+            border: 1px solid red;
+            background-color: #fff;
+            border-radius: 20px;
+        }
+    }
+
+    // Main Content for Expanded Sidebar
+    .app__main.expanded {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        border-radius: 20px;
+        margin-left: 15vw;
+        padding: 20px;
+        transition: margin-left 0.4s ease;
+
+        .header {
+            height: 55px;
+            position: fixed;
+            transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+
+            &.header-hidden {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+        }
+
+        .app__content {
+            margin-top: 65px;
+            flex: 1;
+            overflow-y: auto;
+            border: 1px solid red;
+            background-color: #fff;
+            border-radius: 20px;
+        }
     }
 }
