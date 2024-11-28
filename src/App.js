@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Sidebar from './components/Sidebar/Sidebar';
+import './App.scss';
 
-function App() {
+
+// Import các trang
+import Reports from './pages/Reports/Reports';
+// import OpenReport from './pages/OpenReport';
+// import ReportInfo from './pages/ReportInfo';
+// import Compare from './pages/Compare';
+import OtherPage from './pages/Others/OthersPage';
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="app__root">
+        <div className="side__bar" >
+          <Sidebar />
+        </div>
+        <div className="app__content">
+          <Routes>
+            <Route path="/reports" element={<Reports />} />
+            {/* <Route path="/open-report" element={<OpenReport />} />
+            <Route path="/report-info" element={<ReportInfo />} />
+            <Route path="/compare" element={<Compare />} /> */}
+            <Route path="/others-page" element={<OtherPage />} />
+          </Routes>
+        </div>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
