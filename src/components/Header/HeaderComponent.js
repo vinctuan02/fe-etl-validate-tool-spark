@@ -7,8 +7,16 @@ const Header = () => {
     return (
         <div className='container-header-component'>
             <div className='header-left'>
-                <Button className='button-custom'>Notes <i className='bx bxs-chevron-down'></i></Button>
-                <Button className='button-custom'>QUERY SQL <i className='bx bxs-chevron-down'></i></Button>
+                <Button className='button-custom'
+                    sx={{
+                        fontWeight: 'bold', // Làm chữ in đậm
+                    }}
+                >NOTES <i className='bx bxs-chevron-down'></i></Button>
+                <Button className='button-custom'
+                    sx={{
+                        fontWeight: 'bold', // Làm chữ in đậm
+                    }}
+                >QUERY SQL <i className='bx bxs-chevron-down'></i></Button>
             </div>
             <div className='header-right'>
                 <div className='search-container'>

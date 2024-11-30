@@ -1,7 +1,7 @@
 .app__root {
     display: flex;
-    background-color: #f0f0f0;
-    height: 100vh;
+    background-color: hsl(0, 0%, 94%);
+    // height: 100vh;
 
     a {
         text-decoration: none;
@@ -10,6 +10,7 @@
 
     // Sidebar
     .sidebar-div {
+        // border: 1px solid red;
         position: fixed;
         top: 0;
         left: 0;
@@ -24,36 +25,66 @@
 
         &.expanded {
             width: 17vw;
-            max-width: 300px;
+            // max-width: 300px;
+        }
+    }
+
+    .app__main {
+        height: 200vh;
+
+        .header {}
+
+        .app__content {
+            box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
         }
     }
 
     // Main Content for Collapsed Sidebar
     .app__main.collapsed {
+
+        // border: 1px solid red;
         flex: 1;
         display: flex;
         flex-direction: column;
         border-radius: 20px;
         margin-left: 117px;
-        padding: 20px;
+        padding: 15px 10px 15px 0;
         transition: margin-left 0.4s ease;
 
         .header {
             height: 55px;
             position: fixed;
+            width: calc(100vw - 117px - 10px);
             transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
 
             &.header-hidden {
                 transform: translateY(-100%);
                 opacity: 0;
             }
+
         }
+
+        // .header {
+        //     height: 55px;
+        //     position: fixed;
+        //     width: 100%;
+        //     background-color: #fff;
+        //     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+        //     z-index: 10;
+        //     transition: transform 0.4s ease, opacity 0.4s ease;
+
+        //     &.header-hidden {
+        //         transform: translateY(-100%);
+        //         opacity: 0;
+        //     }
+        // }
+
 
         .app__content {
             margin-top: 65px;
             flex: 1;
             overflow-y: auto;
-            border: 1px solid red;
+            // border: 1px solid red;
             background-color: #fff;
             border-radius: 20px;
         }
@@ -61,18 +92,22 @@
 
     // Main Content for Expanded Sidebar
     .app__main.expanded {
+
+        // border: 1px solid red;
         flex: 1;
         display: flex;
         flex-direction: column;
         border-radius: 20px;
-        margin-left: 15vw;
-        padding: 20px;
+        margin-left: 17vw;
+        padding: 15px 10px 15px 0;
         transition: margin-left 0.4s ease;
 
         .header {
+            // border: 1px solid red;
             height: 55px;
             position: fixed;
             transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+            width: calc(100vw - 17vw - 10px);
 
             &.header-hidden {
                 transform: translateY(-100%);
@@ -81,10 +116,10 @@
         }
 
         .app__content {
-            margin-top: 65px;
+            margin-top: 70px;
             flex: 1;
             overflow-y: auto;
-            border: 1px solid red;
+            // border: 1px solid red;
             background-color: #fff;
             border-radius: 20px;
         }

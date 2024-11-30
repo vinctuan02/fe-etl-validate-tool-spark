@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.scss';
 
@@ -9,10 +9,33 @@ import Header from './components/Header/HeaderComponent';
 
 const App = () => {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
+  const [isHeaderHidden, setIsHeaderHidden] = useState(false);
+  const [lastScrollTop, setLastScrollTop] = useState(0);
 
   const toggleSidebar = () => {
-    setIsSidebarCollapsed(prevState => !prevState);
+    setIsSidebarCollapsed((prevState) => !prevState);
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollTop = window.scrollY;
+
+      // Check if scrolling down or up
+      if (currentScrollTop > lastScrollTop && currentScrollTop > 50) {
+        setIsHeaderHidden(true); // Scrolling down, hide header
+      } else {
+        setIsHeaderHidden(false); // Scrolling up, show header
+      }
+
+      setLastScrollTop(currentScrollTop);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [lastScrollTop]);
 
   return (
     <Router>
@@ -21,16 +44,13 @@ const App = () => {
           <Sidebar toggleSidebar={toggleSidebar} isSidebarCollapsed={isSidebarCollapsed} />
         </div>
         <div className={`app__main ${isSidebarCollapsed ? 'collapsed' : 'expanded'}`}>
-          <div className='header'>
+          <div className={`header ${isHeaderHidden ? 'header-hidden' : ''}`}>
             <Header />
           </div>
           <div className="app__content">
             <Routes>
               <Route path="/reports" element={<Reports />} />
-              <Route path="/page2" element={<page2 />} />
-              <Route path="/page3" element={<page3 />} />
-              <Route path="/page4" element={<page4 />} />
-              <Route path="/others-page" element={<OtherPage />} />
+              <Route path="/page2" element={<OtherPage />} />
             </Routes>
           </div>
         </div>

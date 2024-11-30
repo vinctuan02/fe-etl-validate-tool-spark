@@ -7,6 +7,10 @@
     margin: 15px;
     border-radius: 20px;
 
+    // padding: 5px;
+
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+
     &__logo {
         font-size: 1.5rem; // Tăng kích thước font cho nổi bật hơn
         font-weight: 800; // Chữ đậm hơn để làm nổi bật logo
@@ -57,7 +61,7 @@
             &:hover {
                 background-color: rgba(36, 107, 206, 0.1); // Màu nền nhẹ khi hover
                 color: #246BCE; // Màu chữ khi hover
-                transform: scale(1.05); // Tăng nhẹ kích thước
+                transform: scale(1.15); // Tăng nhẹ kích thước
             }
 
             // Hiệu ứng cho trạng thái active
@@ -65,7 +69,7 @@
                 background-color: #246BCE;
                 color: #fff;
                 transform: scale(1.05); // Nổi bật hơn khi active
-                transition: background-color 0.3s, color 0.3s, transform 0.3s;
+                transition: background-color 0.3s, color 0.3s, transform 0.4s;
 
                 // Tránh hover làm thay đổi trạng thái active
                 &:hover {
