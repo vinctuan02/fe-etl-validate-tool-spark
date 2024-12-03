@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.scss';
 
-import Reports from './pages/Reports/Reports';
-import OtherPage from './pages/Others/OthersPage';
 import Sidebar from './components/Sidebar/Sidebar';
 import Header from './components/Header/HeaderComponent';
 
@@ -13,6 +11,8 @@ const App = () => {
   const [lastScrollTop, setLastScrollTop] = useState(0);
 
   const toggleSidebar = () => {
+    console.log((prevState) => prevState);
+
     setIsSidebarCollapsed((prevState) => !prevState);
   };
 
@@ -39,23 +39,29 @@ const App = () => {
 
   return (
     <Router>
-      <div className="app__root">
-        <div className={`sidebar-div ${isSidebarCollapsed ? 'collapsed' : 'expanded'}`}>
+      <div className={`app__root ${isSidebarCollapsed ? 'collapsed' : 'expanded'}`}>
+        <div className='sidebar-div'>
           <Sidebar toggleSidebar={toggleSidebar} isSidebarCollapsed={isSidebarCollapsed} />
         </div>
-        <div className={`app__main ${isSidebarCollapsed ? 'collapsed' : 'expanded'}`}>
-          <div className={`header ${isHeaderHidden ? 'header-hidden' : ''}`}>
+        <div className={`header-div ${isHeaderHidden ? 'hiden' : ''}`}>
+          <div className='space-of-sidebar'></div>
+          <div className='header'>
             <Header />
           </div>
-          <div className="app__content">
-            <Routes>
-              <Route path="/reports" element={<Reports />} />
-              <Route path="/page2" element={<OtherPage />} />
-            </Routes>
+        </div>
+        <div className='content-div'>
+          <div className='space-of-sidebar'></div>
+          <div className='content-right'>
+            <div className='space-of-header'></div>
+            <div className='content'>
+            </div>
           </div>
+          {/* <button className='button' onClick={toggleSidebar}>
+            Toggle
+          </button> */}
         </div>
       </div>
-    </Router>
+    </Router >
   );
 };
 

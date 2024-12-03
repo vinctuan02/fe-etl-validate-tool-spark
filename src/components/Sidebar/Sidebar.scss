@@ -1,4 +1,5 @@
 .sidebar {
+    // border: 1px solid red;
     display: flex;
     flex-direction: column;
     background-color: #fff;
@@ -22,7 +23,6 @@
         // letter-spacing: 0.5px; // Tăng khoảng cách giữa các chữ cái
         color: #246BCE; // Màu chữ đồng bộ với chủ đề ứng dụng
     }
-
 
     &__menu {
         flex: 1;

@@ -8,10 +8,24 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',monospace;
 }
 
 * {
   box-sizing: border-box !important;
+  transition: transform 0.5ms ease;
 }
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+
+/* 
+Âm (-1 đến -999): Background, hình ảnh nền.
+0 - 99: Nội dung chính (main content).
+100 - 999: Header, sidebar, menu cố định.
+1000 - 9999: Modal, popover, dropdown.
+10000 trở lên: Thông báo khẩn, loading overlay.
+ */
