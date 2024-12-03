@@ -6,8 +6,8 @@ const sidebarNavItems = [
     {
         display: 'Create Report',
         icon: <i className='bx bx-edit'></i>,
-        to: '/create-input',
-        section: 'create-input'
+        to: '/reports',
+        section: 'reports'
     },
     {
         display: 'Open Report',
@@ -39,9 +39,6 @@ const Sidebar = ({ toggleSidebar, isSidebarCollapsed }) => {
     const [activeIndex, setActiveIndex] = useState(0);
     const sidebarRef = useRef();
     const location = useLocation();
-
-    console.log(isSidebarCollapsed);
-
 
     useEffect(() => {
         const curPath = window.location.pathname.split('/')[1];

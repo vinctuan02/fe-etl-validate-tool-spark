@@ -4,6 +4,8 @@ import './App.scss';
 
 import Sidebar from './components/Sidebar/Sidebar';
 import Header from './components/Header/HeaderComponent';
+import OtherPage from './pages/Others/OthersPage';
+import Reports from './pages/Reports/Reports';
 
 const App = () => {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
@@ -54,6 +56,10 @@ const App = () => {
           <div className='content-right'>
             <div className='space-of-header'></div>
             <div className='content'>
+              <Routes>
+                <Route path="/reports" element={<Reports />} />
+                <Route path="/other" element={<OtherPage />} />
+              </Routes>
             </div>
           </div>
           {/* <button className='button' onClick={toggleSidebar}>
